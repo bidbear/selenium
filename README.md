@@ -50,3 +50,20 @@ user.send_keys('要输入的内容')
 element.click() 单击元素
 element.submit()  提交表单
 ```
+## 高级用法限制css，图片，flash的加载
+```
+def disableImages():
+    ## get the Firefox profile object
+    firefoxProfile = FirefoxProfile()
+    ## Disable CSS
+    firefoxProfile.set_preference('permissions.default.stylesheet', 2)
+    ## Disable images
+    firefoxProfile.set_preference('permissions.default.image', 2)
+    ## Disable Flash
+    firefoxProfile.set_preference('dom.ipc.plugins.enabled.libflashplayer.so',
+                                  'false')
+    ## Set the modified profile while creating the browser object 
+    return webdriver.Firefox(firefoxProfile)
+#声明浏览器可调用这个函数
+browser = disableImages()
+```
