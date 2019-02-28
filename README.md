@@ -52,6 +52,9 @@ element.submit()  提交表单
 ```
 ## 高级用法限制css，图片，flash的加载
 ```
+from selenium import webdriver
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+
 def disableImages():
     ## get the Firefox profile object
     firefoxProfile = FirefoxProfile()
