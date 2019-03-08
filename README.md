@@ -1,5 +1,5 @@
 # selenium
-selenium学习（爬虫）
+selenium学习（爬虫）[api文档](https://selenium-python.readthedocs.io/installation.html)
 ## 下载安装 selenium 模块
 `pip install selenium`
 ## 基本用法
