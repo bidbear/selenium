@@ -70,3 +70,22 @@ def disableImages():
 #声明浏览器可调用这个函数
 browser = disableImages()
 ```
+## selenium 解决页面滚动懒加载
+
+```
+all_window_height =  []  # 创建一个列表，用于记录每一次拖动滚动条后页面的最大高度
+all_window_height.append(driver.execute_script("return document.body.scrollHeight;")) #当前页面的最大高度加入列表
+while True:
+    driver.execute_script("scroll(0,100000)") # 执行拖动滚动条操作
+    time.sleep(3)
+    check_height = driver.execute_script("return document.body.scrollHeight;")
+    if check_height == all_window_height[-1]:  #判断拖动滚动条后的最大高度与上一次的最大高度的大小，相等表明到了最底部
+        break
+    else:
+        all_window_height.append(check_height)
+--------------------- 
+作者：ball23god 
+来源：CSDN 
+原文：https://blog.csdn.net/weixin_40718824/article/details/84196233 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+```
